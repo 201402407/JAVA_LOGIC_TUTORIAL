@@ -20,11 +20,26 @@
 -   **Interface와 Implement Class 활용**
 
     -   인터페이스 객체에 구현한 클래스 인스턴스 주입 가능?
+
     -   인터페이스 객체의 getClass는?
+
     -   인터페이스 객체지만 구현 클래스 인스턴스가 들어가있으면, 구현 클래스의 메소드가 호출하는지?
+
     -   어떠한 구현 클래스간에 인스턴스의 상수와 static 메소드 호출 가능?
+
     -   Overriding한 default 메소드와 안한 default 메소드 호출 결과?
+
     -   구현 클래스에서 생성한 메소드를 구현 클래스를 주입한 인터페이스 객체에서 사용할 수 있을까?
+
+-   **Interface와 Implement Class 활용**
+
+    -   HashMap에 들어있지 않은 원소를 get한 경우 어떤 결과가 출력될까?
+
+    -   클래스 객체를 key로 구분할 수 있을까?
+
+    -   내부 변수가 같은 클래스 객체를 key로 구분할 수 있을까?
+
+    -   (id 변수값 기준) hashCode와 equals 함수를 Overriding한 클래스 객체를 key로 했을 때, 꺼낼 수 있는 방법은?
 
 ## 3. Tutorial Description
 

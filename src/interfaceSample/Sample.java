@@ -1,5 +1,41 @@
 package interfaceSample;
 
+/*
+ *  OUTPUT
+
+	[QUESTION 1] 인터페이스 객체에 구현한 클래스 인스턴스 주입 가능?
+	[ANSWER] 가능!
+	------------------------------------------------------------------------------
+	[QUESTION 2] 인터페이스 객체의 getClass는?
+	[ANSWER] samsungPhone 객체는 class interfaceSample.Samsung 클래스 입니다.
+	[ANSWER] iPhone 객체는 class interfaceSample.IPhone 클래스 입니다.
+	------------------------------------------------------------------------------
+	[QUESTION 3] 인터페이스 객체지만 구현 클래스 인스턴스가 들어가있으면, 구현 클래스의 메소드가 호출하는지?
+	RESULT(samsung) : class interfaceSample.Samsung의 전화 메소드 호출!
+	RESULT(ihpone) : class interfaceSample.IPhone의 전화 메소드 호출!
+	[ANSWER] 정상 호출됨!
+	------------------------------------------------------------------------------
+	[QUESTION 4] 어떠한 구현 클래스간에 인스턴스의 상수와 static 메소드 호출 가능?
+	[!] 상수 호출
+	samsung's TYPE : ELECTRONIC
+	iPhone's TYPE : ELECTRONIC
+	[!] static 메소드 호출
+	samsung's telNo : X
+	iPhone's telNo :  X
+	SmartPhone's telNo : 010-1111-2222
+	[ANSWER] 인터페이스 클래스로만 호출 가능(static 이니까)
+	------------------------------------------------------------------------------
+	[QUESTION 5] Overriding한 default 메소드와 안한 default 메소드 호출 결과?
+	[ANSWER] samsungPhone(Overriding) serialId : Samsung의 hashCode : 106642798
+	[ANSWER] iPhone(Not Overriding) serialId : 106642798
+	------------------------------------------------------------------------------
+	[QUESTION 6] 구현 클래스에서 생성한 메소드를 구현 클래스를 주입한 인터페이스 객체에서 사용할 수 있을까?
+	[ANSWER] 인터페이스에서 정의되지 않았기 때문에 사용할 수 없다. 대신, downCasting을 통해 활용할 수 있다.
+	[ANSWER] (samsung) whoIsMyBestLeader : 이재용
+	[ANSWER] (iPhone) whoIsMyBestLeader : Steve Jobs
+	------------------------------------------------------------------------------
+ */
+
 public class Sample {
 	public static void main(String args[]) {
 		// 1) 인터페이스 객체에 구현한 클래스 인스턴스 주입 가능?
@@ -49,8 +85,8 @@ public class Sample {
 		// ** 6) 구현 클래스에서 생성한 메소드를 인스턴스 주입한 인터페이스 객체에서 사용할 수 있을까?
 		System.out.println("[QUESTION 6] 구현 클래스에서 생성한 메소드를 구현 클래스를 주입한 인터페이스 객체에서 사용할 수 있을까?");
 		System.out.println("[ANSWER] 인터페이스에서 정의되지 않았기 때문에 사용할 수 없다. 대신, downCasting을 통해 활용할 수 있다.");
-		System.out.println("[ANSWER] (samsung) whoIsMyBestLeader : " + ((Samsung) samsungPhone).whoIsMyBestLeader());
-		System.out.println("[ANSWER] (iPhone) whoIsMyBestLeader : " + ((IPhone) iPhone).whoIsMyBestLeader());
+		System.out.println("(samsung) whoIsMyBestLeader : " + ((Samsung) samsungPhone).whoIsMyBestLeader());
+		System.out.println("(iPhone) whoIsMyBestLeader : " + ((IPhone) iPhone).whoIsMyBestLeader());
 		System.out.println("------------------------------------------------------------------------------");
 	}
 }
