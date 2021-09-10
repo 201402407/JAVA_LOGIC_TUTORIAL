@@ -17,7 +17,7 @@
 
 ## 2. Tutorial List
 
--   **Interface와 Implement Class 활용**
+-   ### **Interface와 Implement Class 활용**
 
     -   인터페이스 객체에 구현한 클래스 인스턴스 주입 가능?
 
@@ -31,7 +31,7 @@
 
     -   구현 클래스에서 생성한 메소드를 구현 클래스를 주입한 인터페이스 객체에서 사용할 수 있을까?
 
--   **Interface와 Implement Class 활용**
+-   ### **Interface와 Implement Class 활용**
 
     -   HashMap에 들어있지 않은 원소를 get한 경우 어떤 결과가 출력될까?
 
