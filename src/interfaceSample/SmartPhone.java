@@ -2,11 +2,11 @@ package interfaceSample;
 
 public interface SmartPhone {
 	// 1. 상수 - 인터페이스에 final 선언 가능(불변)
-	final String type = "ELECTRONIC";
+	final String TYPE = "ELECTRONIC";
 	
 	// 2. 추상 메소드 - 인터페이스를 구현하는 클래스에서 구현 필수(구현 강제)
 	// public만 사용 가능
-	public String sendSMS();
+	public String sendSMS(String message);
 	public void call();
 	public boolean lock();
 	
