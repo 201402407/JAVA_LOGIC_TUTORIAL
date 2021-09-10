@@ -17,7 +17,7 @@
 
 ## 2. Tutorial List
 
-### Interface와 Implement Class 활용
+-   **Interface와 Implement Class 활용**
 
     -   인터페이스 객체에 구현한 클래스 인스턴스 주입 가능?
     -   인터페이스 객체의 getClass는?
