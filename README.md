@@ -32,7 +32,7 @@
 
     -   구현 클래스에서 생성한 메소드를 구현 클래스를 주입한 인터페이스 객체에서 사용할 수 있을까?
 
--   #### **Interface와 Implement Class 활용**
+-   #### **HashMap Java Collection **
 
     -   HashMap에 들어있지 않은 원소를 get한 경우 어떤 결과가 출력될까?
 
@@ -41,6 +41,14 @@
     -   내부 변수가 같은 클래스 객체를 key로 구분할 수 있을까?
 
     -   (id 변수값 기준) hashCode와 equals 함수를 Overriding한 클래스 객체를 key로 했을 때, 꺼낼 수 있는 방법은?
+
+    -   Map에 들어있는 key의 value 값을 변경시키고 싶을 때 사용하는 방법은?
+
+    -   HashMap for문 탐색하는 방법?
+
+    -   Map에 들어있지 않은 key를 get(key) 호출했을 때 결과?
+
+    -   map.putIfAbsent() 사용법?
 
 ## 3. Tutorial Description
 
