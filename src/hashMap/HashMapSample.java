@@ -63,6 +63,10 @@ public class HashMapSample {
 		
 		// 8) map.putIfAbsent() 사용법?
 		question8();
+		
+		// 9) computeIfAbsent와 computeIfPresent의 차이는?
+		question9();
+		
 	}
 	
 	static void question1() {
@@ -197,6 +201,21 @@ public class HashMapSample {
 		catch(Exception e) {
 			System.out.println("[!] Catch Exception :: " + e);
 		}
+		System.out.println("------------------------------------------------------------------------------");
+	}
+	
+	static void question9() {
+		System.out.println("[QUESTION 9] computeIfAbsent와 computeIfPresent의 차이는?");
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		String key = "KEY";
+		String key2 = "KEY2";
+		int num = 200;
+		System.out.println("[ANSWER] computeIfAbsent(key, function) : key의 값이 없을 경우에만 parameter로 받은 함수(람다식) 실행");
+		map.computeIfAbsent(key, k -> num);	
+		System.out.println("key의 값이 존재하지 않으면, 해당 key에 해당하는 value " + num + "인 값을 map에 put ::: " + map.get(key));
+		System.out.println("[ANSWER] computeIfPresent(key, function) : key의 값이 있을 경우에만 parameter로 받은 함수(람다식) 실행");
+		int result = map.computeIfPresent(key, (k, v) -> {return v * v;});	
+		System.out.println("key의 값이 존재하면, value * value 값을 리턴 ::: " + result);
 		System.out.println("------------------------------------------------------------------------------");
 	}
 }

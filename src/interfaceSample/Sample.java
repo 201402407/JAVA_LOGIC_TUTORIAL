@@ -29,7 +29,7 @@ package interfaceSample;
 	[ANSWER] samsungPhone(Overriding) serialId : Samsung의 hashCode : 106642798
 	[ANSWER] iPhone(Not Overriding) serialId : 106642798
 	------------------------------------------------------------------------------
-	[QUESTION 6] 구현 클래스에서 생성한 메소드를 구현 클래스를 주입한 인터페이스 객체에서 사용할 수 있을까?
+	[QUESTION 6] 구현 클래스에서 생성한 메소드를 구현 클래스가 주입된 인터페이스 객체에서 사용할 수 있을까?
 	[ANSWER] 인터페이스에서 정의되지 않았기 때문에 사용할 수 없다. 대신, downCasting을 통해 활용할 수 있다.
 	[ANSWER] (samsung) whoIsMyBestLeader : 이재용
 	[ANSWER] (iPhone) whoIsMyBestLeader : Steve Jobs
