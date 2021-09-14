@@ -40,7 +40,7 @@ public class Sample {
 	public static void main(String args[]) {
 		// 1) 인터페이스 객체에 구현한 클래스 인스턴스 주입 가능?
 		// -> 가능!
-		System.out.println("[QUESTION 1] 인터페이스 객체에 구현한 클래스 인스턴스 주입 가능?");
+		System.out.println("[QUESTION 1] 인터페이스 객체에 구현한 클래스 인스턴스 주입 가능??");
 		SmartPhone samsungPhone = new Samsung();
 		SmartPhone iPhone = new IPhone();
 		assert samsungPhone == null || iPhone == null;
