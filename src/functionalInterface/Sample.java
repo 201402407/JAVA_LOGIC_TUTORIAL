@@ -1,5 +1,7 @@
 package functionalInterface;
 
+import java.util.function.Consumer;
+
 // 함수형 인터페이스(JAVA 8 이상)
 public class Sample {
 	public static void main(String args[]) {
@@ -9,6 +11,7 @@ public class Sample {
 		System.out.println("------------------------------------------------------------------------------");
 		
 		question2();
+		Consumer<String> consumer = (str) -> System.out.println("a : " + str);
 	}
 	
 	static void question2() {
@@ -16,10 +19,10 @@ public class Sample {
 		System.out.println("[ANSWER] (일반적인 경우) SaltIdSetter 인터페이스를 구현한 LoginSaltIdSetter, 이를 생성자 내에서 활용한 LoginHashIdLegacy class 참고");
 		String id = "LEEHAEWON";
 		System.out.println("parameter id : " + id);
-		System.out.println("loginHashid : " + new LoginHashIdLegacy(id));
+		System.out.println("loginHashid : " + new LoginHashIdLegacy(id).loginHashId);
 		System.out.println("[ANSWER] (함수형 인터페이스 활용한 경우) @FunctionalInterface SaltIdSetter 인터페이스를 구현한 LoginHashId class 참고");
 		System.out.println("parameter id : " + id);
-		System.out.println("loginHashid : " + new LoginHashId(id));
+		System.out.println("loginHashid : " + new LoginHashId(id).loginHashId);
 	}
 }
 
@@ -63,11 +66,9 @@ class LoginHashId {
 				return "SALT_" + str;
 			}
 		});
-		System.out.println("익명 inner class 활용 : " + loginHashId);
 		
 		// 2) 람다 표현식을 활용한 함수형 인터페이스 활용 로직
 		loginHashId = getLoginHashId((str) -> "SALT_" + str);
-		System.out.println("lambda 표현식 활용 : " + loginHashId);
 	}
 	
 	// 어차피 해당 인터페이스는 여기서만 일급 객체로 함수를 parameter로 받기 때문에
