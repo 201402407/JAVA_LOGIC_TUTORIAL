@@ -19,7 +19,7 @@
 ## 2. Tutorial List
 
 -   ### ** Interface와 Implement Class 활용 **
----
+
     -   인터페이스 객체에 구현한 클래스 인스턴스 주입 가능?
 
     -   인터페이스 객체의 getClass는?
@@ -34,7 +34,7 @@
 <br/>
 
 -   ### ** Functional Interface **
----
+
     -   Functional Interface(함수형 인터페이스)란?
 
     -   일반적인 인터페이스 구현 클래스와 함수형 인터페이스로 구현한 클래스의 코드 차이는?
@@ -44,7 +44,7 @@
 <br/>
 
 -   ### ** HashMap Java Collection **
----
+
     -   HashMap에 들어있지 않은 원소를 get한 경우 어떤 결과가 출력될까?
 
     -   클래스 객체를 key로 구분할 수 있을까?
