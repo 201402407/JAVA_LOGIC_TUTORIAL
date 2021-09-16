@@ -41,6 +41,12 @@
 
     -   Consumer 함수형 인터페이스 설명 및 예제
 
+    -   Predicate 함수형 인터페이스 설명 및 예제
+
+    -   Supplier 함수형 인터페이스 설명 및 예제
+
+    -   BiConsumer 함수형 인터페이스 설명 및 예제
+
 <br/>
 
 -   ### ** HashMap Java Collection **

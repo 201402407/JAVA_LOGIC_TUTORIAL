@@ -1,6 +1,9 @@
 package functionalInterface;
 
+import java.util.function.BiConsumer;
 import java.util.function.Consumer;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 // 함수형 인터페이스(JAVA 8 이상)
 public class Sample {
@@ -15,6 +18,15 @@ public class Sample {
 		
 		// Consumer 함수형 인터페이스 설명 및 예제
 		question3();
+		
+		// Predicate 함수형 인터페이스 설명 및 예제
+		question4();
+		
+		// Supplier 함수형 인터페이스 설명 및 예제
+		question5();
+		
+		// BiConsumer 함수형 인터페이스 설명 및 예제
+		question6();
 	}
 	
 	static void question2() {
@@ -32,11 +44,57 @@ public class Sample {
 	static void question3() {
 		System.out.println("[QUESTION 3] Consumer 함수형 인터페이스 설명 및 예제");
 		System.out.println("[ANSWER] Parameter O, Return X. accept 추상 메소드를 통해 함수형 인터페이스 호출가능");
+		System.out.println("[ANSWER] T -> void");
 		String code = "Consumer<String> consumer = (str) -> System.out.println('이거슨 Consumer, parameter: ' + str);";
 		System.out.println(code);
 		System.out.print("Consumer.accept('consumer') \n-> ");
 		Consumer<String> consumer = (str) -> System.out.println("이거슨 Consumer, parameter: " + str);
 		consumer.accept("consumer");
+		System.out.println("------------------------------------------------------------------------------");
+	}
+	
+	static void question4() {
+		System.out.println("[QUESTION 4] Predicate 함수형 인터페이스 설명 및 예제");
+		System.out.println("[ANSWER] return type이 boolean(True / False). test 추상 메소드를 통해 함수형 인터페이스 호출가능");
+		System.out.println("[ANSWER] T -> boolean");
+		String code = "Predicate<String> predicate = (str) -> str.equals('True');";
+		Predicate<String> predicate = (str) -> str.equals("True");
+		System.out.println(code);
+		System.out.print("Predicate.test('False') -> " + predicate.test("False"));
+		System.out.println();
+		System.out.println("------------------------------------------------------------------------------");
+	}
+	
+	static void question5() {
+		System.out.println("[QUESTION 5] Supplier 함수형 인터페이스 설명 및 예제");
+		System.out.println("[ANSWER] 공급자. parameter는 없고, return 값만 존재. get 추상 메소드를 통해 함수형 인터페이스 호출가능. 대괄호 안에 return 필수");
+		System.out.println("[ANSWER] () -> T");
+		String code = "Supplier<String> supplier = () -> { return supplierStr + ' Supplier !! '; }";
+		String supplierStr = "This is";
+		Supplier<String> supplier = () -> {
+			return supplierStr + " Supplier !! ";
+		};
+		System.out.println(code);
+		System.out.print("Supplier.get() -> " + supplier.get());
+		System.out.println();
+		System.out.println("------------------------------------------------------------------------------");
+	}
+	
+	static void question6() {
+		System.out.println("[QUESTION 6] BiConsumer 함수형 인터페이스 설명 및 예제");
+		System.out.println("[ANSWER] parameter는 2개가 존재하고, Return X. accept(param1, param2) 추상 메소드를 통해 함수형 인터페이스 호출가능.");
+		System.out.println("[ANSWER] Supplier 만 제외한 나머지엔 Bi가 존재");
+		String code = "BiConsumer<String, String> biConsumer = (param1, param2) -> { System.out.print(param1 + param2); }";
+		BiConsumer<String, String> biConsumer = (param1, param2) -> {
+			System.out.print(param1 + param2);
+		};
+		
+		String param1 = "This is(param1) ";
+		String param2 = "BiConsumer !!(param2)";
+		System.out.println(code);
+		System.out.print("BiConsumer.get(param1, param2) -> ");
+		biConsumer.accept(param1, param2);
+		System.out.println();
 		System.out.println("------------------------------------------------------------------------------");
 	}
 }
