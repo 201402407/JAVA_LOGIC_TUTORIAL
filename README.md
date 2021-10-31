@@ -14,7 +14,7 @@
     -   Eclipse IDE(2020-06 (4.16.0))
     -   VS Code
 -   ### Language
-    -   Java (Jre 1.8)
+    -   Java 17
 
 ## 2. Tutorial List
 
@@ -31,6 +31,7 @@
     -   Overriding한 default 메소드와 안한 default 메소드 호출 결과?
 
     -   구현 클래스에서 생성한 메소드를 구현 클래스를 주입한 인터페이스 객체에서 사용할 수 있을까?
+
 <br/>
 
 -   ### ** Functional Interface **
@@ -71,10 +72,21 @@
 
 <br/>
 
--   ### ** Reference(참조) Sample **
+-   ### ** Reference(참조) **
 
     -   순환참조의 정의와 예시
 
+<br/>
+
+-   ### ** ThreadLocal **
+
+    -   ThreadLocal이란?
+
+    -   ThreadLocal은 보통 언제 사용하는지?
+    
+    -   ThreadLocal 사용법
+
+    -   ThreadLocal 사용 예시
 
 <br/>
 <br/>
