@@ -10,6 +10,8 @@ public class Sample {
 		question1();
 		question2();
 		question3();
+		question4();
+		question5();
 	}
 	
 	static void question1() {
@@ -68,11 +70,56 @@ public class Sample {
 	}
 	
 	static void question4() {
-		System.out.println("[QUESTION 3] Generic Type을 2개 사용한 클래스");
-		System.out.println("-> String Generic Type 설정한 클래스");
-//		genericInterface1.getType();
-		System.out.println("-> Integer Generic Type 설정한 클래스");
-//		genericInterface2.getType();
+		System.out.println("[QUESTION 4] Generic Type을 2개 사용한 클래스");
+		System.out.println("-> <String, Integer> Generic Type 설정한 클래스");
+		GenericMultiClass<String, Integer> g1Class = new GenericMultiClass<String, Integer>("KEY1", 1);
+		System.out.println("Key : " + g1Class.getKey() + ", Type :: " + g1Class.getKey().getClass().getTypeName());
+		System.out.println("Value : " + g1Class.getValue() + ", Type :: " + g1Class.getValue().getClass().getTypeName());
+		System.out.println("-> <Integer, String> Generic Type 설정한 클래스");
+		GenericMultiClass<Integer, String> g2Class = new GenericMultiClass<Integer, String>(2, "VALUE2");
+		System.out.println("Key : " + g2Class.getKey() + ", Type :: " + g1Class.getKey().getClass().getTypeName());
+		System.out.println("Value : " + g2Class.getValue() + ", Type :: " + g1Class.getValue().getClass().getTypeName());
 		System.out.println("------------------------------------------------------------------------------");
 	}
+	
+	static void question5() {
+		System.out.println("[QUESTION 5] 제한된 Generic Type 클래스 사용");
+		System.out.println("[ANSWER] 1) 특정 타입 및 특정 타입의 자손들만 제네릭 타입으로 사용 가능");
+		System.out.println("-> Dessert1<T extends Apple> : Apple 및 Apple을 상속받는 GreenApple class 또한 Type 가능");
+		Dessert1<GreenApple> d1 = new Dessert1<>(new GreenApple());
+		System.out.println("Dessert1<GreenApple>의 지역변수 T의 Type :: " + d1.getDessert().getClass().getTypeName());
+		System.out.println("-> Dessert1<T extends Apple & Delicious> : Apple을 상속받고 Delicious 인더페이스를 구현하는 HoneyApple class 가능");
+		Dessert2<HoneyApple> d2 = new Dessert2<>(new HoneyApple());
+		System.out.println("Dessert2<HoneyApple>의 지역변수 T의 Type :: " + d2.getDessert().getClass().getTypeName());
+		System.out.println();
+		System.out.println("[ANSWER] 2) 특정 타입 및 특정 타입의 조상(부모)들만 제네릭 타입으로 사용 가능");
+		System.out.println("-> Dessert<? super Banana> : Banana의 조상인 Fruit 가능");
+		Dessert3 d3 = new Dessert3();
+		d3.getFruitType(new Dessert<Fruit>(new Fruit()));
+		System.out.println("------------------------------------------------------------------------------");
+	}
+	
+	
+	
+//	public static void getKeyValueType(Class clazz) {
+//		// java reflection 사용
+//		ParameterizedType type;
+//		try {
+//			type = (ParameterizedType) clazz.getField("key").getGenericType();
+//			System.out.println(type.getActualTypeArguments()[0]);
+//		} catch (NoSuchFieldException e) {
+//			e.printStackTrace();
+//		} catch (SecurityException e) {
+//			e.printStackTrace();
+//		}
+//		
+//		
+////		for(Field f : clazz.getDeclaredFields()) {
+////			System.out.println("Declared Field(필드 선언형) Type :: " + f.getGenericType());
+//////			ParameterizedType type = (ParameterizedType) f.getGenericType();	// 파라미터화된 타입
+////			System.out.println("-> Parameterized(파라미터화된 형) Type :: " + type.getTypeName());
+//////			Type myType = type.getActualTypeArguments()[0];
+//////			System.out.println("-> Actual Generic(실제 선언된 제네릭) Type :: " + myType);
+////		}
+//	}
 }
