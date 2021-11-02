@@ -21,9 +21,9 @@
 -   ### ** Interface와 Implement Class 활용 **
 
 <details>
-  <summary>-   인터페이스 객체에 구현한 클래스 인스턴스 주입 가능?</summary>
+  &nbsp;&nbsp;<summary>[QUESTION 1] 인터페이스 객체에 구현한 클래스 인스턴스 주입 가능?</summary>
   </br>
-  <p>HTTP는 따로 암호화 과정을 거치지 않기 때문에 중간에 패킷을 가로챌 수 있고, 수정할 수 있습니다. 따라서 보안이 취약해짐을 알 수 있습니다. 이를 보완하기 위해 나온 것이 HTTPS입니다. 중간에 암호화 계층을 거쳐서 패킷을 암호화합니다.</p>
+  &nbsp;&nbsp;<p>[ANSWER] 가능!</p>
 </details>
 
 
