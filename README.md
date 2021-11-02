@@ -25,14 +25,12 @@
   <br>
   <p>[ANSWER] 가능!</p>
 </details>
-<br>
 <details>
   <summary>  [QUESTION 2] 인터페이스 객체의 getClass는?</summary>
     <br>
   <p>[ANSWER] samsungPhone 객체는 class interfaceSample.Samsung 클래스 입니다. <br>
 [ANSWER] iPhone 객체는 class interfaceSample.IPhone 클래스 입니다.</p>
 </details>
-<br>
 <details>
   <summary>  [QUESTION 3] 인터페이스 객체지만 구현 클래스 인스턴스가 들어가있으면, 구현 클래스의 메소드가 호출하는지?</summary>
     <br>
@@ -41,7 +39,6 @@ RESULT(ihpone) : class interfaceSample.IPhone의 전화 메소드 호출!
 [ANSWER] 정상 호출됨!<br>
 [ANSWER] iPhone 객체는 class interfaceSample.IPhone 클래스 입니다.</p>
 </details>
-<br>
 <details>
   <summary>  [QUESTION 4] 어떠한 구현 클래스간에 인스턴스의 상수와 static 메소드 호출 가능?</summary>
     <br>
@@ -57,14 +54,12 @@ RESULT(ihpone) : class interfaceSample.IPhone의 전화 메소드 호출!<br>
 [ANSWER] 정상 호출됨!<br>
 [ANSWER] iPhone 객체는 class interfaceSample.IPhone 클래스 입니다.</p>
 </details>
-<br>
 <details>
   <summary>  [QUESTION 5] Overriding한 default 메소드와 안한 default 메소드 호출 결과?</summary>
     <br>
   <p>[ANSWER] samsungPhone(Overriding) serialId : Samsung의 hashCode : 106642798<br>
 [ANSWER] iPhone(Not Overriding) serialId : 106642798</p>
 </details>
-<br>
 <details>
   <summary>  [QUESTION 6] 구현 클래스에서 생성한 메소드를 구현 클래스를 주입한 인터페이스 객체에서 사용할 수 있을까?</summary>
     <br>
