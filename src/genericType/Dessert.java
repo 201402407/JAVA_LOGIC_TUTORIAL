@@ -1,8 +1,5 @@
 package genericType;
 
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
-
 interface Delicious {}
 
 public class Dessert<T> {
@@ -46,12 +43,6 @@ class Dessert2<T extends Apple & Delicious> extends Dessert<T> {
 // (RedBanana 포함) RedBanana의 부모 및 조상 클래스와 Comparable 하는 인터페이스를 구현한 Class를 Generic Type으로 사용 가능
 class Dessert3<T extends Comparable<? super RedBanana>> {
 	public static void getFruitType(Dessert<? super Banana> dessert) {
-		// reflection 활용
-		Type superTypeClass = dessert.getClass().getClass();
-		if (!(superTypeClass instanceof ParameterizedType)) {  // sanity check
-            throw new IllegalArgumentException("TypeReference는 항상 실제 타입 파라미터 정보와 함께 생성되어야 합니다.");
-        }
-		Type superType = ((ParameterizedType) superTypeClass).getActualTypeArguments()[0];
-		System.out.println("Dessert<? super Banana> parameter 객체 타입 :: " + superType);
+		System.out.println("Dessert<? super Banana> parameter 객체 타입 :: " + dessert.myDessert.getClass().getTypeName());
 	}
 }

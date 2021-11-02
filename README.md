@@ -20,6 +20,13 @@
 
 -   ### ** Interface와 Implement Class 활용 **
 
+<details>
+  <summary>-   인터페이스 객체에 구현한 클래스 인스턴스 주입 가능?</summary>
+  </br>
+  <p>HTTP는 따로 암호화 과정을 거치지 않기 때문에 중간에 패킷을 가로챌 수 있고, 수정할 수 있습니다. 따라서 보안이 취약해짐을 알 수 있습니다. 이를 보완하기 위해 나온 것이 HTTPS입니다. 중간에 암호화 계층을 거쳐서 패킷을 암호화합니다.</p>
+</details>
+
+
     -   인터페이스 객체에 구현한 클래스 인스턴스 주입 가능?
 
     -   인터페이스 객체의 getClass는?
@@ -78,6 +85,20 @@
 
 <br/>
 
+-   ### ** Generic Type(제네릭 타입) **
+
+    -   Generic Type이란?
+
+    -   Generic Type을 사용한 경우와 사용하지 않은 경우
+
+    -   Generic Type을 사용한 인터페이스
+
+    -   Generic Type을 2개 사용한 클래스
+
+    -   제한된 Generic Type 클래스 사용
+
+<br/>
+
 -   ### ** ThreadLocal **
 
     -   ThreadLocal이란?
@@ -89,6 +110,23 @@
     -   ThreadLocal 사용 예시
 
 <br/>
+
+-   ### ** Thread-Safety **
+
+    -   Thread-Safety 하다는 것은 어떤 의미인지?
+
+    -   Thread-Safety를 구현할 수 있는 방법은?
+
+    -   Not Thread-safe 한 경우(동기화X)
+
+    -   Synchronized 방법 중 synchronized 함수를 만들어 사용
+
+    -   Synchronized 방법 중 synchronized lock을 만들어 사용
+
+    -   Semaphore 사용(작성중!)
+
+<br/>
+
 <br/>
 
 ## 3. Tutorial Description

@@ -23,7 +23,7 @@ public class Sample {
 	}
 	
 	static void question2() {
-		System.out.println("[QUESTION 2] Generic Type을 사용한 경우와 사용하지 않은 경우 코드");
+		System.out.println("[QUESTION 2] Generic Type을 사용한 경우와 사용하지 않은 경우");
 		System.out.println("[ANSWER] Generic Type 사용한 경우");
 		List<String> list = new ArrayList<String>();
 		list.add("STRING");
@@ -94,9 +94,15 @@ public class Sample {
 		System.out.println();
 		System.out.println("[ANSWER] 2) 특정 타입 및 특정 타입의 조상(부모)들만 제네릭 타입으로 사용 가능");
 		System.out.println("-> Dessert<? super Banana> : Banana의 조상인 Fruit 가능");
-		Dessert3 d3 = new Dessert3();
+		Dessert3<Orange> d3 = new Dessert3<>();
 		d3.getFruitType(new Dessert<Fruit>(new Fruit()));
+		System.out.println("-> T extends Comparable<? super RedBanana> : Banana의 조상인 Fruit를 Comparable 한 클래스 사용 가능");
+		System.out.println("[!] '?' 와일드카드는 해당 제네릭 타입에 관심이 없고, 타입의 유무에 따른 메소드 사용에 관심이 있을 때.");
 		System.out.println("------------------------------------------------------------------------------");
+	}
+	
+	static void question6() {
+		
 	}
 	
 	
