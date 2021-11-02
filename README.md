@@ -18,26 +18,60 @@
 
 ## 2. Tutorial List
 
--   ### ** Interface와 Implement Class 활용 **
-
+### ** Interface와 Implement Class 활용 **
+<br>
 <details>
-  &nbsp;&nbsp;<summary>[QUESTION 1] 인터페이스 객체에 구현한 클래스 인스턴스 주입 가능?</summary>
-  </br>
-  &nbsp;&nbsp;<p>[ANSWER] 가능!</p>
+  <summary>  [QUESTION 1] 인터페이스 객체에 구현한 클래스 인스턴스 주입 가능?</summary>
+  <br>
+  <p>[ANSWER] 가능!</p>
 </details>
-
-
-    -   인터페이스 객체에 구현한 클래스 인스턴스 주입 가능?
-
-    -   인터페이스 객체의 getClass는?
-
-    -   인터페이스 객체지만 구현 클래스 인스턴스가 들어가있으면, 구현 클래스의 메소드가 호출하는지?
-
-    -   어떠한 구현 클래스간에 인스턴스의 상수와 static 메소드 호출 가능?
-
-    -   Overriding한 default 메소드와 안한 default 메소드 호출 결과?
-
-    -   구현 클래스에서 생성한 메소드를 구현 클래스를 주입한 인터페이스 객체에서 사용할 수 있을까?
+<br>
+<details>
+  <summary>  [QUESTION 2] 인터페이스 객체의 getClass는?</summary>
+    <br>
+  <p>[ANSWER] samsungPhone 객체는 class interfaceSample.Samsung 클래스 입니다. <br>
+[ANSWER] iPhone 객체는 class interfaceSample.IPhone 클래스 입니다.</p>
+</details>
+<br>
+<details>
+  <summary>  [QUESTION 3] 인터페이스 객체지만 구현 클래스 인스턴스가 들어가있으면, 구현 클래스의 메소드가 호출하는지?</summary>
+    <br>
+  <p>RESULT(samsung) : class interfaceSample.Samsung의 전화 메소드 호출!<br>
+RESULT(ihpone) : class interfaceSample.IPhone의 전화 메소드 호출!
+[ANSWER] 정상 호출됨!<br>
+[ANSWER] iPhone 객체는 class interfaceSample.IPhone 클래스 입니다.</p>
+</details>
+<br>
+<details>
+  <summary>  [QUESTION 4] 어떠한 구현 클래스간에 인스턴스의 상수와 static 메소드 호출 가능?</summary>
+    <br>
+  <p>[!] 상수 호출<br>
+samsung's TYPE : ELECTRONIC<br>
+iPhone's TYPE : ELECTRONIC<br>
+[!] static 메소드 호출<br>
+samsung's telNo : X<br>
+iPhone's telNo :  X<br>
+SmartPhone's telNo : 010-1111-2222<br>
+[ANSWER] 인터페이스 클래스로만 호출 가능(static 이니까)<br>
+RESULT(ihpone) : class interfaceSample.IPhone의 전화 메소드 호출!<br>
+[ANSWER] 정상 호출됨!<br>
+[ANSWER] iPhone 객체는 class interfaceSample.IPhone 클래스 입니다.</p>
+</details>
+<br>
+<details>
+  <summary>  [QUESTION 5] Overriding한 default 메소드와 안한 default 메소드 호출 결과?</summary>
+    <br>
+  <p>[ANSWER] samsungPhone(Overriding) serialId : Samsung의 hashCode : 106642798<br>
+[ANSWER] iPhone(Not Overriding) serialId : 106642798</p>
+</details>
+<br>
+<details>
+  <summary>  [QUESTION 6] 구현 클래스에서 생성한 메소드를 구현 클래스를 주입한 인터페이스 객체에서 사용할 수 있을까?</summary>
+    <br>
+  <p>[ANSWER] 인터페이스에서 정의되지 않았기 때문에 사용할 수 없다. 대신, downCasting을 통해 활용할 수 있다.<br>
+(samsung) whoIsMyBestLeader : 이재용<br>
+(iPhone) whoIsMyBestLeader : Steve Jobs</p>
+</details>
 
 <br/>
 
