@@ -329,17 +329,50 @@ thread2 get 결과 :: 87</p>
 
 ### ** Thread-Safety **
 
-    -   Thread-Safety 하다는 것은 어떤 의미인지?
-
-    -   Thread-Safety를 구현할 수 있는 방법은?
-
-    -   Not Thread-safe 한 경우(동기화X)
-
-    -   Synchronized 방법 중 synchronized 함수를 만들어 사용
-
-    -   Synchronized 방법 중 synchronized lock을 만들어 사용
-
-    -   Semaphore 사용(작성중!)
+<br>
+<details>
+  <summary>  [QUESTION 1] Thread-Safety 하다는 것은 어떤 의미인지?</summary>
+  <br>
+  <p>[ANSWER] 멀티 쓰레딩 프로그래밍에서 여러 쓰레드가 어떤 객체, 함수, 변수에 접근하게 되도 동작 결과에 아무런 문제가 발생하지 않는 것(= 어디서든 수행 결과가 올바른 것)</p>
+</details>
+<details>
+  <summary>  [QUESTION 2] Thread-Safety를 구현할 수 있는 방법은?</summary>
+  <br>
+  <p>[ANSWER] 1) Re-entrancy 방법<br>
+-> 어떤 쓰레드가 함수를 호출해 실행중일 때 다른 쓰레드가 함수를 호출해도 두 결과가 올바르게 나와야 한다.<br>
+-> 즉, 여러 쓰레드가 동시에 함수를 호출해도 올바른 결과가 나와야 한다.<br>
+-> 공유하는 자원 없이 독립적으로 실행가능한 코드를 설계하기<br>
+[ANSWER] 2) Thread-local Storage 방법<br>
+-> 공유 자원 사용을 줄이기 위해 각각 스레드에서만 접근 가능한 ThreadLocal을 사용한다.<br>
+[ANSWER] 3) Mutual Exclusion(상호 배제) 방법<br>
+-> Semaphore(세마포어)나 Synchronize, lock 등 공유 자원의 접근을 통제한다.<br>
+[ANSWER] 4) Atomic operations 방법<br>
+-> 데이터의 상태 변경 전/후 에만 접근이 가능하다.<br>
+-> 데이터를 변경하는 순간에는 다른 변경 접근이 불가능하다.<br>
+-> ex) ++, +=와 같이 +와 =이 한 코드에 있는 것</p>
+</details>
+<details>
+  <summary>  [QUESTION 3] Not Thread-safe 한 경우(동기화X)</summary>
+  <br>
+  <p>[ANSWER] not thread-safety 하기 때문에 매 번 잔액 결과가 다르다. (동작 결과는 생략!)</p>
+</details>
+<details>
+  <summary>  [QUESTION 4] Synchronized 방법 중 synchronized 함수를 만들어 사용</summary>
+  <br>
+  <p>[ANSWER] thread-safety 하기 때문에 잔액 결과가 같다.(Thread1, 2 실행 시간에 따라 누가 어떤 잔액을 가지는지는 달라지지만, 결과는 동일하다)<br>
+[ANSWER] Synchronized는 객체 내부 전체에 lock을 걸기 때문에, 다른 쓰레드는 객체 자체를 사용하려면 기다려야 한다. (동작 결과는 생략!)</p>
+</details>
+<details>
+  <summary>  [QUESTION 5] Synchronized 방법 중 synchronized lock을 만들어 사용</summary>
+  <br>
+  <p>[ANSWER] thread-safety 하기 때문에 잔액 결과가 같다.(Thread1, 2 실행 시간에 따라 누가 어떤 잔액을 가지는지는 달라지지만, 결과는 동일하다)<br>
+[ANSWER] 함수 내부에 별도 객체를 만들어 lock을 걸기 때문에, 다른 쓰레드는 해당 함수 내부에서 객체 종료를 기다려야 한다. (동작 결과는 생략!)</p>
+</details>
+<details>
+  <summary>  [QUESTION 6] Semaphore 사용(작성중!)</summary>
+  <br>
+  <p></p>
+</details>
 
 <br/>
 
