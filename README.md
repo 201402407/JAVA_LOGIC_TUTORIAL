@@ -227,27 +227,74 @@ key의 값이 존재하지 않으면, 해당 key에 해당하는 value 200인 �
 [ANSWER] computeIfPresent(key, function) : key의 값이 있을 경우에만 parameter로 받은 함수(람다식) 실행<br>
 key의 값이 존재하면, value * value 값을 리턴 ::: 40000</p>
 </details>
-    -
 
 <br/>
 
 ### ** Reference(참조) **
 
-    -   순환참조의 정의와 예시
+<br>
+<details>
+  <summary>  [QUESTION 1] 순환참조의 정의와 예시</summary>
+  <br>
+  <p>[ANSWER] 순환참조는 서로가 서로의 객체를 참조하여 그 메소드를 호출하게 될 때 무한루프로 동작하여 오류를 발생하는 것<br>
+[ANSWER] Spring에서는 보통 A클래스 내 객체 변수에 B클래스 Bean을 주입하고, B클래스 내 객체 변수에 A클래스 Bean을 주입하는 경우에 발생<br>
+Example : Chicken class <-> Egg class(닭과 달걀의 관계)</p>
+</details>
 
 <br/>
 
 ### ** Generic Type(제네릭 타입) **
 
-    -   Generic Type이란?
-
-    -   Generic Type을 사용한 경우와 사용하지 않은 경우
-
-    -   Generic Type을 사용한 인터페이스
-
-    -   Generic Type을 2개 사용한 클래스
-
-    -   제한된 Generic Type 클래스 사용
+<br>
+<details>
+  <summary>  [QUESTION 1] Generic Type이란?</summary>
+  <br>
+  <p>[ANSWER] 클래스 내부에서 지정하는 것이 아닌 외부에서 사용자에 의해 지정되는 타입.<br>
+[ANSWER] 타입의 경계(*, extends 등)를 지정하고 컴파일 시 해당 타입으로 Object를 casting해주는 것.<br>
+[ANSWER] 그래서, 런타임 시 발생할 수 있는 타입에러를 컴파일 단계에서 검출할 수 있다.</p>
+</details>
+<details>
+  <summary>  [QUESTION 2] Generic Type을 사용한 경우와 사용하지 않은 경우</summary>
+  <br>
+  <p>[ANSWER] Generic Type 사용한 경우<br>
+-> 별도의 Type casting 작업이 필요 없음<br>
+[ANSWER] Generic Type 사용하지 않은 경우<br>
+-> 별도의 Type casting 작업이 필요함. Generic Type 미지정 시 Object class Type으로 정의되기 때문에</p>
+</details>
+<details>
+  <summary>  [QUESTION 3] Generic Type을 사용한 인터페이스</summary>
+  <br>
+  <p>-> String Generic Type 설정한 Interface Overriding
+Generic Type인 T에 String을 넣으면 ?? class java.lang.String
+-> Integer Generic Type 설정한 Interface Overriding
+Generic Type인 T에 Integer를 넣으면 ?? class java.lang.Integer</p>
+</details>
+<details>
+  <summary>  [QUESTION 4] Generic Type을 2개 사용한 클래스</summary>
+  <br>
+  <p>-> &lt;String, Integer&gt; Generic Type 설정한 클래스<br>
+Key : KEY1, Type :: java.lang.String<br>
+Value : 1, Type :: java.lang.Integer<br>
+-> &lt;Integer, String&gt; Generic Type 설정한 클래스<br>
+Key : 2, Type :: java.lang.String<br>
+Value : VALUE2, Type :: java.lang.Integer</p>
+</details>
+<details>
+  <summary>  [QUESTION 5] Generic Type을 사용한 인터페이스</summary>
+  <br>
+  <p>
+[ANSWER] 1) 특정 타입 및 특정 타입의 자손들만 제네릭 타입으로 사용 가능<br>
+-> Dessert1&lt;T extends Apple&gt; : Apple 및 Apple을 상속받는 GreenApple class 또한 Type 가능<br>
+Dessert1&lt;GreenApple&gt;의 지역변수 T의 Type :: genericType.GreenApple<br>
+-> Dessert1&lt;T extends Apple & Delicious&gt; : Apple을 상속받고 Delicious 인더페이스를 구현하는 HoneyApple class 가능<br>
+Dessert2&lt;HoneyApple&gt;의 지역변수 T의 Type :: genericType.HoneyApple<br>
+<br>
+[ANSWER] 2) 특정 타입 및 특정 타입의 조상(부모)들만 제네릭 타입으로 사용 가능<br>
+-> Dessert&lt;? super Banana&gt; : Banana의 조상인 Fruit 가능<br>
+Dessert&lt;? super Banana&gt; parameter 객체 타입 :: genericType.Fruit<br>
+-> T extends Comparable&lt;? super RedBanana&gt; : Banana의 조상인 Fruit를 Comparable 한 클래스 사용 가능<br>
+[!] '?' 와일드카드는 해당 제네릭 타입에 관심이 없고, 타입의 유무에 따른 메소드 사용에 관심이 있을 때.</p>
+</details>
 
 <br/>
 
