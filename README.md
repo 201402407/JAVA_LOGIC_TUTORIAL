@@ -19,6 +19,7 @@
 ## 2. Tutorial List
 
 ### ** Interface와 Implement Class 활용 **
+
 <br>
 <details>
   <summary>  [QUESTION 1] 인터페이스 객체에 구현한 클래스 인스턴스 주입 가능?</summary>
@@ -70,19 +71,61 @@ RESULT(ihpone) : class interfaceSample.IPhone의 전화 메소드 호출!<br>
 
 <br/>
 
--   ### ** Functional Interface **
+### ** Functional Interface **
 
-    -   Functional Interface(함수형 인터페이스)란?
-
-    -   일반적인 인터페이스 구현 클래스와 함수형 인터페이스로 구현한 클래스의 코드 차이는?
-
-    -   Consumer 함수형 인터페이스 설명 및 예제
-
-    -   Predicate 함수형 인터페이스 설명 및 예제
-
-    -   Supplier 함수형 인터페이스 설명 및 예제
-
-    -   BiConsumer 함수형 인터페이스 설명 및 예제
+<br>
+<details>
+  <summary>  [QUESTION 1] Functional Interface(함수형 인터페이스)란?</summary>
+  <br>
+  <p>[ANSWER] 1) 함수를 마치 1급 객체처럼 활용할 수 있게 만드는 인터페이스<br>
+[ANSWER] 2) 단일 추상 메소드를 가지는 인터페이스. 추후, 인터페이스를 구현하여 순수 함수 및 익명 함수, 람다식으로 활용하기 위함</p>
+</details>
+<details>
+  <summary>  [QUESTION 2] 일반적인 인터페이스 구현 클래스와 함수형 인터페이스로 구현한 클래스의 코드 차이는?</summary>
+  <br>
+  <p>[ANSWER] (일반적인 경우) SaltIdSetter 인터페이스를 구현한 LoginSaltIdSetter, 이를 생성자 내에서 활용한 LoginHashIdLegacy class 참고<br>
+parameter id : LEEHAEWON<br>
+saltId : SALT_LEEHAEWON<br>
+loginHashid : 1507284685<br>
+[ANSWER] (함수형 인터페이스 활용한 경우) @FunctionalInterface SaltIdSetter 인터페이스를 구현한 LoginHashId class 참고<br>
+parameter id : LEEHAEWON<br>
+saltId : SALT_LEEHAEWON<br>
+saltId : SALT_LEEHAEWON<br>
+loginHashid : 1507284685</p>
+</details>
+<details>
+  <summary>  [QUESTION 3] Consumer 함수형 인터페이스 설명 및 예제</summary>
+  <br>
+  <p>[ANSWER] Parameter O, Return X. accept 추상 메소드를 통해 함수형 인터페이스 호출가능<br>
+[ANSWER] T -> void<br>
+Consumer&lt;String&gt; consumer = (str) -> System.out.println('이거슨 Consumer, parameter: ' + str);<br>
+Consumer.accept('consumer') <br>
+-> 이거슨 Consumer, parameter: consumer</p>
+</details>
+<details>
+  <summary>  [QUESTION 4] Predicate 함수형 인터페이스 설명 및 예제</summary>
+  <br>
+  <p>[ANSWER] return type이 boolean(True / False). test 추상 메소드를 통해 함수형 인터페이스 호출가능<br>
+[ANSWER] T -> boolean<br>
+Predicate&lt;String&gt; predicate = (str) -> str.equals('True');<br>
+Predicate.test('False') -> false</p>
+</details>
+<details>
+  <summary>  [QUESTION 5] Supplier 함수형 인터페이스 설명 및 예제</summary>
+  <br>
+  <p>[ANSWER] 공급자. parameter는 없고, return 값만 존재. get 추상 메소드를 통해 함수형 인터페이스 호출가능. 대괄호 안에 return 필수<br>
+[ANSWER] () -> T<br>
+Supplier&lt;String&gt; supplier = () -> { return supplierStr + ' Supplier !! '; }<br>
+Supplier.get() -> This is Supplier !! </p>
+</details>
+<details>
+  <summary>  [QUESTION 6] BiConsumer 함수형 인터페이스 설명 및 예제</summary>
+  <br>
+  <p>[[ANSWER] parameter는 2개가 존재하고, Return X. accept(param1, param2) 추상 메소드를 통해 함수형 인터페이스 호출가능.<br>
+[ANSWER] Supplier 만 제외한 나머지엔 Bi가 존재<br>
+BiConsumer&lt;String, String&gt; biConsumer = (param1, param2) -> { System.out.print(param1 + param2); }<br>
+BiConsumer.get(param1, param2) -> This is(param1) BiConsumer !!(param2)</p>
+</details>
 
 <br/>
 
@@ -133,7 +176,7 @@ RESULT(ihpone) : class interfaceSample.IPhone의 전화 메소드 호출!<br>
     -   ThreadLocal이란?
 
     -   ThreadLocal은 보통 언제 사용하는지?
-    
+
     -   ThreadLocal 사용법
 
     -   ThreadLocal 사용 예시
