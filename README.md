@@ -121,7 +121,7 @@ Supplier.get() -> This is Supplier !! </p>
 <details>
   <summary>  [QUESTION 6] BiConsumer 함수형 인터페이스 설명 및 예제</summary>
   <br>
-  <p>[[ANSWER] parameter는 2개가 존재하고, Return X. accept(param1, param2) 추상 메소드를 통해 함수형 인터페이스 호출가능.<br>
+  <p>[ANSWER] parameter는 2개가 존재하고, Return X. accept(param1, param2) 추상 메소드를 통해 함수형 인터페이스 호출가능.<br>
 [ANSWER] Supplier 만 제외한 나머지엔 Bi가 존재<br>
 BiConsumer&lt;String, String&gt; biConsumer = (param1, param2) -> { System.out.print(param1 + param2); }<br>
 BiConsumer.get(param1, param2) -> This is(param1) BiConsumer !!(param2)</p>
@@ -129,35 +129,115 @@ BiConsumer.get(param1, param2) -> This is(param1) BiConsumer !!(param2)</p>
 
 <br/>
 
--   ### ** HashMap Java Collection **
+### ** HashMap Java Collection **
 
-    -   HashMap에 들어있지 않은 원소를 get한 경우 어떤 결과가 출력될까?
-
-    -   클래스 객체를 key로 구분할 수 있을까?
-
-    -   내부 변수가 같은 클래스 객체를 key로 구분할 수 있을까?
-
-    -   (id 변수값 기준) hashCode와 equals 함수를 Overriding한 클래스 객체를 key로 했을 때, 꺼낼 수 있는 방법은?
-
-    -   Map에 들어있는 key의 value 값을 변경시키고 싶을 때 사용하는 방법은?
-
-    -   HashMap for문 탐색하는 방법?
-
-    -   Map에 들어있지 않은 key를 get(key) 호출했을 때 결과?
-
-    -   map.putIfAbsent() 사용법?
-
-    -   computeIfAbsent와 computeIfPresent의 차이는?
+<br>
+<details>
+  <summary>  [QUESTION 1] HashMap에 들어있지 않은 원소를 get한 경우 어떤 결과가 출력될까?</summary>
+  <br>
+  <p>[ANSWER] null</p>
+</details>
+<details>
+  <summary>  [QUESTION 2] 클래스 객체를 key로 구분할 수 있을까?</summary>
+  <br>
+  <p>a1 객체를 key로 put.<br>
+a2 객체를 key로 put.<br>
+key a1 get : a1 value<br>
+key a1's same id object(a4) get : null<br>
+key a2 get : a2 value<br>
+key a2's same id object(a3) get : null<br>
+[ANSWER] 같은 객체를 get하면 객체의 주소를 hash한 값을 hash buckets에 key로 넣기 때문에 해당 object key의 value를 꺼낼 수 있다.</p>
+</details>
+<details>
+  <summary>  [QUESTION 3] 내부 변수가 같은 클래스 객체를 key로 구분할 수 있을까?</summary>
+  <br>
+  <p>key new Object(same id, same val) get : null<br>
+[ANSWER] 객체의 내부 변수 값이 일치해도 객체 주소 자체가 다르기 때문에(주소를 hash한 값이 key) 꺼낼 수 없다.</p>
+</details>
+<details>
+  <summary>  [QUESTION 4] (id 변수값 기준) hashCode와 equals 함수를 Overriding한 클래스 객체를 key로 했을 때, 꺼낼 수 있는 방법은?</summary>
+  <br>
+  <p>b1 객체를 key로 put.<br>
+[ANSWER] key로 넣은 객체로 get : b1<br>
+[ANSWER] id값 일치, val값 일치 한 new 객체를 key로 get  : b1<br>
+[ANSWER] id값 일치, val값 불일치 한 new 객체를 key로 get  : b1<br>
+[ANSWER] id값 불일치, val값 일치 한 new 객체를 key로 get  : null<br>
+[ANSWER] id값 불일치, val값 불일치 한 new 객체를 key로 get  : null</p>
+</details>
+<details>
+  <summary>  [QUESTION 5] Map에 들어있는 key의 value 값(기본형)을 변경시키고 싶을 때 사용하는 방법은?</summary>
+  <br>
+  <p>get한 value 값 수정? -> X<br>
+[ANSWER] put(get()~) 로 꺼낸 값을 다시 put해서 갱신시킨다.<br>
+갱신 이전 value : 1<br>
+갱신 이후 value : 2</p>
+</details>
+<details>
+  <summary>  [QUESTION 6] HashMap for문 탐색하는 방법?</summary>
+  <br>
+  <p>[ANSWER] 1) Iterator를 이용한 방법  <br>
+[ELAPSED] CHECK START!<br>
+key(iterator.next()) : Beck , value : 5<br>
+key(iterator.next()) : Sway , value : 2<br>
+key(iterator.next()) : Lee , value : 1<br>
+key(iterator.next()) : FULL , value : 2<br>
+[ELAPSED] 0(ms) FINISHED.<br>
+[ANSWER] 2) entrySet() => Map.Entry&lt;Key, Value&gt; 방법<br>
+[ELAPSED] CHECK START!<br>
+key : Beck , value : 5<br>
+key : Sway , value : 2<br>
+key : Lee , value : 1<br>
+key : FULL , value : 2<br>
+[ELAPSED] 0(ms) FINISHED.<br>
+[ANSWER] 3) keySet() 및 get(key) 방법<br>
+[ELAPSED] CHECK START!<br>
+key : Beck , value : 5<br>
+key : Sway , value : 2<br>
+key : Lee , value : 1<br>
+key : FULL , value : 2<br>
+[ELAPSED] 0(ms) FINISHED.<br>
+[ANSWER] 4) (성능낮음) lambda forEach 방법<br>
+[ELAPSED] CHECK START!<br>
+key : Beck , value : 5<br>
+key : Sway , value : 2<br>
+key : Lee , value : 1<br>
+key : FULL , value : 2<br>
+[ELAPSED] 24(ms) FINISHED.</p>
+</details>
+<details>
+  <summary>  [QUESTION 7] Map에 들어있지 않은 key를 get(key) 호출했을 때 결과?</summary>
+  <br>
+  <p>[ANSWER] get(not have key) result : null</p>
+</details>
+<details>
+  <summary>  [QUESTION 8] map.putIfAbsent() 사용법?</summary>
+  <br>
+  <p>[ANSWER] (key, value) 를 parameter로 사용하는 putIfAbsent 함수는 map에 key가 존재하지 않으면 (key, value)를 put하면서 null 리턴해줍니다. 만약, key가 존재하면 value 리턴해줍니다.<br>
+(key 존재하는 경우) key's putIfAbsent result : 12<br>
+(key 존재하지 않는 경우) key's putIfAbsent(key2, 1234) result : null<br>
+(key 존재하지 않는 경우) get key2's value : 1234<br>
+[?] value의 type이 Integer인데, int 변수에 return값을 할당해주면 null은 어떻게 처리될까?<br>
+[!] Catch Exception :: java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "java.util.Map.putIfAbsent(Object, Object)" is null</p>
+</details>
+<details>
+  <summary>  [QUESTION 9] computeIfAbsent와 computeIfPresent의 차이는?</summary>
+  <br>
+  <p>[ANSWER] computeIfAbsent(key, function) : key의 값이 없을 경우에만 parameter로 받은 함수(람다식) 실행<br>
+key의 값이 존재하지 않으면, 해당 key에 해당하는 value 200인 값을 map에 put ::: 200<br>
+[ANSWER] computeIfPresent(key, function) : key의 값이 있을 경우에만 parameter로 받은 함수(람다식) 실행<br>
+key의 값이 존재하면, value * value 값을 리턴 ::: 40000</p>
+</details>
+    -
 
 <br/>
 
--   ### ** Reference(참조) **
+### ** Reference(참조) **
 
     -   순환참조의 정의와 예시
 
 <br/>
 
--   ### ** Generic Type(제네릭 타입) **
+### ** Generic Type(제네릭 타입) **
 
     -   Generic Type이란?
 
@@ -171,7 +251,7 @@ BiConsumer.get(param1, param2) -> This is(param1) BiConsumer !!(param2)</p>
 
 <br/>
 
--   ### ** ThreadLocal **
+### ** ThreadLocal **
 
     -   ThreadLocal이란?
 
@@ -183,7 +263,7 @@ BiConsumer.get(param1, param2) -> This is(param1) BiConsumer !!(param2)</p>
 
 <br/>
 
--   ### ** Thread-Safety **
+### ** Thread-Safety **
 
     -   Thread-Safety 하다는 것은 어떤 의미인지?
 

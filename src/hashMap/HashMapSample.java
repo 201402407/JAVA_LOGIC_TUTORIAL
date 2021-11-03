@@ -122,7 +122,7 @@ public class HashMapSample {
 	}
 	
 	static void question5() {
-		System.out.println("[QUESTION 5] Map에 들어있는 key의 value 값(기본형)을 변경시키고 싶을 때  사용하는 방법은?");
+		System.out.println("[QUESTION 5] Map에 들어있는 key의 value 값(기본형)을 변경시키고 싶을 때 사용하는 방법은?");
 		Map<String, Integer> cMap = new HashMap<String, Integer>();
 		String key = "KEY";
 		cMap.put(key, 1);
