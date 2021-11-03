@@ -29,10 +29,10 @@ public class Sample {
 		ThreadLocal threadLocal = new ThreadLocal();
 		System.out.println("[?] ThreadLocal Generic Type 사용 가능할까?");
 		ThreadLocal<String> threadLocalGeneric = new ThreadLocal<>();
-		System.out.println("[!] ThreadLocal Generic Type 사용 가능(<>로 사용방법 동일)");
+		System.out.println("-> ThreadLocal Generic Type 사용 가능(<>로 사용방법 동일)");
 		System.out.println("[?] ThreadLocal Class의 Default 초기값 설정 방법?");
-		System.out.println("[!] ThreadLocal에서 initialValue method를 Override 하면 이 ThreadLocal 변수를 사용하는 모든 쓰레드의 default값이 존재한다.");
-		System.out.println("[!] 즉, 별도의 set 함수로 값 설정하기 전에도 get으로 동일한 default값을 꺼내 사용할 수 있다.");
+		System.out.println("-> ThreadLocal에서 initialValue method를 Override 하면 이 ThreadLocal 변수를 사용하는 모든 쓰레드의 default값이 존재한다.");
+		System.out.println("-> 즉, 별도의 set 함수로 값 설정하기 전에도 get으로 동일한 default값을 꺼내 사용할 수 있다.");
 		ThreadLocal<String> subThreadLocal = new ThreadLocal<String>() {
 			@Override
 			protected String initialValue() {

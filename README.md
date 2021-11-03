@@ -98,7 +98,7 @@ loginHashid : 1507284685</p>
   <br>
   <p>[ANSWER] Parameter O, Return X. accept 추상 메소드를 통해 함수형 인터페이스 호출가능<br>
 [ANSWER] T -> void<br>
-Consumer&lt;String&gt; consumer = (str) -> System.out.println('이거슨 Consumer, parameter: ' + str);<br>
+Consumer<String> consumer = (str) -> System.out.println('이거슨 Consumer, parameter: ' + str);<br>
 Consumer.accept('consumer') <br>
 -> 이거슨 Consumer, parameter: consumer</p>
 </details>
@@ -107,7 +107,7 @@ Consumer.accept('consumer') <br>
   <br>
   <p>[ANSWER] return type이 boolean(True / False). test 추상 메소드를 통해 함수형 인터페이스 호출가능<br>
 [ANSWER] T -> boolean<br>
-Predicate&lt;String&gt; predicate = (str) -> str.equals('True');<br>
+Predicate<String> predicate = (str) -> str.equals('True');<br>
 Predicate.test('False') -> false</p>
 </details>
 <details>
@@ -115,7 +115,7 @@ Predicate.test('False') -> false</p>
   <br>
   <p>[ANSWER] 공급자. parameter는 없고, return 값만 존재. get 추상 메소드를 통해 함수형 인터페이스 호출가능. 대괄호 안에 return 필수<br>
 [ANSWER] () -> T<br>
-Supplier&lt;String&gt; supplier = () -> { return supplierStr + ' Supplier !! '; }<br>
+Supplier<String> supplier = () -> { return supplierStr + ' Supplier !! '; }<br>
 Supplier.get() -> This is Supplier !! </p>
 </details>
 <details>
@@ -123,7 +123,7 @@ Supplier.get() -> This is Supplier !! </p>
   <br>
   <p>[ANSWER] parameter는 2개가 존재하고, Return X. accept(param1, param2) 추상 메소드를 통해 함수형 인터페이스 호출가능.<br>
 [ANSWER] Supplier 만 제외한 나머지엔 Bi가 존재<br>
-BiConsumer&lt;String, String&gt; biConsumer = (param1, param2) -> { System.out.print(param1 + param2); }<br>
+BiConsumer<String, String> biConsumer = (param1, param2) -> { System.out.print(param1 + param2); }<br>
 BiConsumer.get(param1, param2) -> This is(param1) BiConsumer !!(param2)</p>
 </details>
 
@@ -182,26 +182,14 @@ key(iterator.next()) : Sway , value : 2<br>
 key(iterator.next()) : Lee , value : 1<br>
 key(iterator.next()) : FULL , value : 2<br>
 [ELAPSED] 0(ms) FINISHED.<br>
-[ANSWER] 2) entrySet() => Map.Entry&lt;Key, Value&gt; 방법<br>
-[ELAPSED] CHECK START!<br>
-key : Beck , value : 5<br>
-key : Sway , value : 2<br>
-key : Lee , value : 1<br>
-key : FULL , value : 2<br>
+[ANSWER] 2) entrySet() => Map.Entry<Key, Value> 방법<br>
+[ELAPSED] CHECK START! (이하 생략)<br>
 [ELAPSED] 0(ms) FINISHED.<br>
 [ANSWER] 3) keySet() 및 get(key) 방법<br>
-[ELAPSED] CHECK START!<br>
-key : Beck , value : 5<br>
-key : Sway , value : 2<br>
-key : Lee , value : 1<br>
-key : FULL , value : 2<br>
+[ELAPSED] CHECK START! (이하 생략)<br>
 [ELAPSED] 0(ms) FINISHED.<br>
 [ANSWER] 4) (성능낮음) lambda forEach 방법<br>
-[ELAPSED] CHECK START!<br>
-key : Beck , value : 5<br>
-key : Sway , value : 2<br>
-key : Lee , value : 1<br>
-key : FULL , value : 2<br>
+[ELAPSED] CHECK START! (이하 생략)<br>
 [ELAPSED] 24(ms) FINISHED.</p>
 </details>
 <details>
@@ -272,10 +260,10 @@ Generic Type인 T에 Integer를 넣으면 ?? class java.lang.Integer</p>
 <details>
   <summary>  [QUESTION 4] Generic Type을 2개 사용한 클래스</summary>
   <br>
-  <p>-> &lt;String, Integer&gt; Generic Type 설정한 클래스<br>
+  <p>-> <String, Integer> Generic Type 설정한 클래스<br>
 Key : KEY1, Type :: java.lang.String<br>
 Value : 1, Type :: java.lang.Integer<br>
--> &lt;Integer, String&gt; Generic Type 설정한 클래스<br>
+-> <Integer, String> Generic Type 설정한 클래스<br>
 Key : 2, Type :: java.lang.String<br>
 Value : VALUE2, Type :: java.lang.Integer</p>
 </details>
@@ -284,15 +272,15 @@ Value : VALUE2, Type :: java.lang.Integer</p>
   <br>
   <p>
 [ANSWER] 1) 특정 타입 및 특정 타입의 자손들만 제네릭 타입으로 사용 가능<br>
--> Dessert1&lt;T extends Apple&gt; : Apple 및 Apple을 상속받는 GreenApple class 또한 Type 가능<br>
-Dessert1&lt;GreenApple&gt;의 지역변수 T의 Type :: genericType.GreenApple<br>
--> Dessert1&lt;T extends Apple & Delicious&gt; : Apple을 상속받고 Delicious 인더페이스를 구현하는 HoneyApple class 가능<br>
-Dessert2&lt;HoneyApple&gt;의 지역변수 T의 Type :: genericType.HoneyApple<br>
+-> Dessert1<T extends Apple> : Apple 및 Apple을 상속받는 GreenApple class 또한 Type 가능<br>
+Dessert1<GreenApple>의 지역변수 T의 Type :: genericType.GreenApple<br>
+-> Dessert1<T extends Apple & Delicious> : Apple을 상속받고 Delicious 인더페이스를 구현하는 HoneyApple class 가능<br>
+Dessert2<HoneyApple>의 지역변수 T의 Type :: genericType.HoneyApple<br>
 <br>
 [ANSWER] 2) 특정 타입 및 특정 타입의 조상(부모)들만 제네릭 타입으로 사용 가능<br>
--> Dessert&lt;? super Banana&gt; : Banana의 조상인 Fruit 가능<br>
-Dessert&lt;? super Banana&gt; parameter 객체 타입 :: genericType.Fruit<br>
--> T extends Comparable&lt;? super RedBanana&gt; : Banana의 조상인 Fruit를 Comparable 한 클래스 사용 가능<br>
+-> Dessert<? super Banana> : Banana의 조상인 Fruit 가능<br>
+Dessert<? super Banana> parameter 객체 타입 :: genericType.Fruit<br>
+-> T extends Comparable<? super RedBanana> : Banana의 조상인 Fruit를 Comparable 한 클래스 사용 가능<br>
 [!] '?' 와일드카드는 해당 제네릭 타입에 관심이 없고, 타입의 유무에 따른 메소드 사용에 관심이 있을 때.</p>
 </details>
 
@@ -300,13 +288,42 @@ Dessert&lt;? super Banana&gt; parameter 객체 타입 :: genericType.Fruit<br>
 
 ### ** ThreadLocal **
 
-    -   ThreadLocal이란?
-
-    -   ThreadLocal은 보통 언제 사용하는지?
-
-    -   ThreadLocal 사용법
-
-    -   ThreadLocal 사용 예시
+<br>
+<details>
+  <summary>  [QUESTION 1] ThreadLocal이란?</summary>
+  <br>
+  <p>[ANSWER] 일종의 쓰레드 지역변수. 오직 하나의 쓰레드에 의해 읽고 쓸 수 있는 변수로서, 다른 각각의 쓰레드가 하나의 ThreadLocal을 호출해도 서로 다른 값을 바라본다.<br>
+[ANSWER] Thread의 정보를 Key로 하는 Map 형식으로 데이터를 저장해두고 사용하는 자료구조.<br>
+[ANSWER] ThreadPool 사용하여 Thread 재활용 시 이전에 저장된 ThreadLocal을 호출하게 되므로 모든 ThreadLocal 사용 후 remove 필수.</p>
+</details>
+<details>
+  <summary>  [QUESTION 2] ThreadLocal은 보통 언제 사용하는지?</summary>
+  <br>
+  <p>[ANSWER] 1) 사용자 인증정보 - Spring Security에서 사용자마다 다른 사용자 인증 정보 세션을 사용할 때.<br>
+[ANSWER] 2) 트랜잭션 컨텍스트 - 트랜잭션 매니저가 트랜잭션 컨텍스트를 전파할 때.</p>
+</details>
+<details>
+  <summary>  [QUESTION 3] ThreadLocal 사용법</summary>
+  <br>
+  <p>[ANSWER] 1) ThreadLocal 객체 생성<br>
+[?] ThreadLocal Generic Type 사용 가능할까?<br>
+-> ThreadLocal Generic Type 사용 가능(<>로 사용방법 동일)<br>
+[?] ThreadLocal Class의 Default 초기값 설정 방법?<br>
+-> ThreadLocal에서 initialValue method를 Override 하면 이 ThreadLocal 변수를 사용하는 모든 쓰레드의 default값이 존재한다.<br>
+-> 즉, 별도의 set 함수로 값 설정하기 전에도 get으로 동일한 default값을 꺼내 사용할 수 있다.<br>
+[ANSWER] 2) 현재 ThreadLocal에 값 저장(.set())<br>
+[ANSWER] 3) 현재 ThreadLocal에 값 불러오기(.get())<br>
+[ANSWER] 4) 사용 완료 후 ThreadLocal 값 삭제(.remove())</p>
+</details>
+<details>
+  <summary>  [QUESTION 4] ThreadLocal 사용 예시</summary>
+  <br>
+  <p>[ANSWER] 1) Runnable 인터페이스 구현(MyRunnable) -> threadLocal에 랜덤 값 저장<br>
+[ANSWER] 2) 하나의 Runnable 객체를 2개의 쓰레드에 담기<br>
+[ANSWER] 3) 각 쓰레드 run 시 두 쓰레드에 다른 값이 담기는지 확인(쓰레드 별 ThreadLocal에 랜덤 값이 담기기 때문에 다르다.)<br>
+thread1 get 결과 :: 37<br>
+thread2 get 결과 :: 87</p>
+</details>
 
 <br/>
 
