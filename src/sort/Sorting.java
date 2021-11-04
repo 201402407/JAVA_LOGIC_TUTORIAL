@@ -66,4 +66,23 @@ public class Sorting {
 			arr[j + 1] = temp;	// 해당 위치에 원소 삽입
 		}
 	}
+	
+	public static void selectionSort(int[] arr) {
+		int size = arr.length;
+		int min;
+		
+		for(int i = 0; i < size - 1; i++) {	// i 인덱스에 적합한 원소 넣기(정렬)
+			min = i;	// 무조건 해당 인덱스보다 원소의 값이 같거나 클 수 밖에 없다.
+			for(int j = i + 1; j < size; j++) {
+				if(arr[min] > arr[j]) {
+					min = j;
+				}
+			}
+			
+			// 가장 낮은 값(또는 높은 값) 을 i번째 인덱스에 넣기(정렬됨)
+			int temp = arr[min];
+			arr[min] = arr[i];
+			arr[i] = temp;
+		}
+	}
 }

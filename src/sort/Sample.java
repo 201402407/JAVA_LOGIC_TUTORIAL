@@ -5,9 +5,10 @@ import java.util.function.Supplier;
 import common.Utils;
 
 public class Sample {
-	static final int SIZE = 20000;
+	static final int SIZE = 50000;
 	public static void main(String args[]) {
 		bubbleSort();
+		selectionSort();
 		insertionSort();
 		quickSort();
 	}
@@ -21,6 +22,7 @@ public class Sample {
 		System.out.println("[ANSWER] 시간복잡도 : Best => O(n^2) / Average => O(n^2) / Worst => O(n^2)");
 		System.out.print("Bubble Sort Test :: ");
 		Utils.elapsedCheck(bubbleSortSupplier);
+		System.out.println("------------------------------------------------------------------------------");
 	}
 	
 	public static void insertionSort() {
@@ -32,6 +34,19 @@ public class Sample {
 		System.out.println("[ANSWER] 시간복잡도 : Best => O(n) / Average => O(n^2) / Worst => O(n^2)");
 		System.out.print("Insertion Sort Test :: ");
 		Utils.elapsedCheck(insertionSortSupplier);
+		System.out.println("------------------------------------------------------------------------------");
+	}
+	
+	public static void selectionSort() {
+		System.out.println("[QUESTION] Selection Sort(선택정렬)");
+		System.out.println("[ANSWER] 1) 전체 배열을 순회하면서 최소값(또는 최대값)을 찾는다.");
+		System.out.println("[ANSWER] 2) 1)의 값을 맨 앞자리와 교체한다.");
+		System.out.println("[ANSWER] 3) 교체한 값을 제외한 다음 값부터 1~2를 반복한다.");
+		System.out.println("[ANSWER] 데이터의 양이 적을 때 유용함. 대신, 데이터의 양이 어느정도 많아지면 사용하기 힘들다.");
+		System.out.println("[ANSWER] 시간복잡도 : Best => O(n^2) / Average => O(n^2) / Worst => O(n^2)");
+		System.out.print("Selection Sort Test :: ");
+		Utils.elapsedCheck(selectionSortSupplier);
+		System.out.println("------------------------------------------------------------------------------");
 	}
 	
 	public static void quickSort() {
@@ -42,6 +57,7 @@ public class Sample {
 		System.out.println("[ANSWER] 시간복잡도 : Best => O(nlogn) / Average => O(nlogn) / Worst => O(n^2)");
 		System.out.print("Quick Sort Test :: ");
 		Utils.elapsedCheck(quickSortSupplier);
+		System.out.println("------------------------------------------------------------------------------");
 	}
 	
 	// 버블정렬
@@ -65,6 +81,14 @@ public class Sample {
 		return true;
 	};
 	
+	// 선택정렬
+	static Supplier<Boolean> selectionSortSupplier = () -> {
+		int[] arr = initIntArr(SIZE);
+		Sorting.selectionSort(arr);
+		return true;
+	};
+	
+	// 임의의 숫자 배열 생성
 	public static int[] initIntArr(int size) {
 		int[] arr = new int[size];
 		for(int i = 0; i < size; i++) {
