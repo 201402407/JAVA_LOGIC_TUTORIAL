@@ -73,8 +73,20 @@ public class Sample {
 	
 	static void question6() {
 		System.out.println("[QUESTION 6] Semaphore 사용");
-		System.out.println("[ANSWER] not thread-safe 하기 때문에 종료 구문이 2개 나올 수 있다.");
-		System.out.println("------------------------------------------------------------------------------");
+		int maxThread = 3;
+		int threadCount = 10;
+		final SemaphoreResource resource = new SemaphoreResource(maxThread);
+		for(int i = 0; i < threadCount; i++) {
+			Thread t = new Thread(new Runnable() {
+				
+				@Override
+				public void run() {
+					resource.use();
+				}
+			});
+			
+			t.start();
+		}
 	}
 	
     static void tempString() {
@@ -91,11 +103,15 @@ class BankingCallback {
 		finishThreadCount++;
 		if(finishThreadCount == 2) {
 			System.out.println("------------------------------------------------------------------------------");
+			thread = null;
 			if(questionNumber == 3) {
 				Sample.question4();
 			}
 			if(questionNumber == 4) {
 				Sample.question5();
+			}
+			if(questionNumber == 5) {
+				Sample.question6();
 			}
 		}
 	}
