@@ -376,6 +376,73 @@ thread2 get 결과 :: 87</p>
 
 <br/>
 
+### ** Sorting(정렬) **
+
+<br>
+<p>수행시간(느린 순) : 버블정렬 > 선택정렬 >= 삽입정렬 > 병합정렬 >= 퀵정렬 >= 기수정렬</p>
+<details>
+  <summary>  [QUESTION] Bubble Sort(버블정렬)</summary>
+  <br>
+  <p>[ANSWER] 1) 인접한 두 개의 원소를 비교<br>
+[ANSWER] 2) 인덱스를 하나씩 증가시키면서, 끝까지 인접한 두 개의 원소를 비교<br>
+[ANSWER] 3) 1~2 과정을 1개의 step으로 했을 때, 매 step마다 끝에서부터 한 개의 원소가 정렬됨<br>
+[ANSWER] 4) 모든 원소를 정렬완료할 때 까지 step 반복<br>
+[ANSWER] 시간복잡도 : Best => O(n^2) / Average => O(n^2) / Worst => O(n^2)<br>
+[ELAPSED] (50000개 기준) 3230(ms) FINISHED.</p>
+</details>
+<details>
+  <summary>  [QUESTION] Selection Sort(선택정렬)</summary>
+  <br>
+  <p>[ANSWER] 1) 전체 배열을 순회하면서 최소값(또는 최대값)을 찾는다.<br>
+[ANSWER] 2) 1)의 값을 맨 앞자리와 교체한다.<br>
+[ANSWER] 3) 교체한 값을 제외한 다음 값부터 1~2를 반복한다.<br>
+[ANSWER] 데이터의 양이 적을 때 유용함. 대신, 데이터의 양이 어느정도 많아지면 사용하기 힘들다.<br>
+[ANSWER] 시간복잡도 : Best => O(n^2) / Average => O(n^2) / Worst => O(n^2)<br>
+[ELAPSED] (50000개 기준) 905(ms) FINISHED.</p>
+</details>
+<details>
+  <summary>  [QUESTION] Insertion Sort(삽입정렬)</summary>
+  <br>
+  <p>[ANSWER] 1) 2번째 인덱스부터 순회 시작. 해당 값을 정렬된 인덱스에 삽입하기 위한 정렬<br>
+[ANSWER] 2) 1)의 인덱스부터 최대 첫 번째 인덱스까지 순회하면서 1)의 인덱스값과 2)에서 순회한 인덱스값 크기 비교<br>
+[ANSWER] 3) 1)의 인덱스 값보다 2)의 인덱스 값이 더 크면 2)의 인덱스 원소를 한 칸 뒤로 옮긴다.<br>
+[ANSWER] 4) 1)의 인덱스 값이 더 클때까지 2~3 과정 반복.<br>
+[ANSWER] 시간복잡도 : Best => O(n) / Average => O(n^2) / Worst => O(n^2)<br>
+[ELAPSED] (50000개 기준) 903(ms) FINISHED.</p>
+</details>
+<details>
+  <summary>  [QUESTION] Merge Sort(합병정렬)</summary>
+  <br>
+  <p>[ANSWER] devide and conquer 알고리즘(분할정복) 활용하여 배열을 나누고 합치면서 정렬을 진행한다.<br>
+[ANSWER] 1) 배열을 반으로 분할한다.(2-way)<br>
+[ANSWER] 2) 더이상 분할할 배열이 없을 때까지(길이가 1인 배열) 1)의 과정을 진행한다.<br>
+[ANSWER] 3) 분할된 배열들을 합친다.<br>
+[ANSWER] 시간복잡도 : Best => O(nlogn) / Average => O(nlogn) / Worst => O(nlogn)<br>
+[ELAPSED] (50000개 기준) 13(ms) FINISHED.</p>
+</details>
+<details>
+  <summary>  [QUESTION] Quick Sort(퀵정렬)</summary>
+  <br>
+  <p>[ANSWER] 1) List에서 하나의 기준으로 원소를 선택(pivot)<br>
+[ANSWER] 2) pivot 기준 앞(왼쪽)에는 pivot보다 작은 값이, 뒤(오른쪽)에는 pivot보다 큰 값이 오도록 두 개의 리스트로 분할<br>
+[ANSWER] 3) 분할된 두 개의 리스트 각각 재귀호출로 퀵소트 진행<br>
+[ANSWER] 시간복잡도 : Best => O(nlogn) / Average => O(nlogn) / Worst => O(n^2)<br>
+[ELAPSED] (50000개 기준) 9(ms) FINISHED.</p>
+</details>
+<details>
+  <summary>  [QUESTION] Radix Sort(기수정렬)</summary>
+  <br>
+  <p>[ANSWER] 낮은 자리수부터 비교해서 0~9 10개의 큐(여기서는 배열)에 자리수 숫자에 맞게 분배하고 빼며 정렬하는 방식<br>
+[ANSWER] 메모리 낭비 심함<br>
+[ANSWER] 1) 각 최소 자리수부터 시작해서 자리수에 맞는 숫자에 맞게 큐에 넣는다.<br>
+[ANSWER] 2) 낮은 수의 큐(0~9 중 0)부터 차례로 값을 꺼낸다.<br>
+[ANSWER] 3) 십 단위의 자리수 순서대로 최대 숫자의 자리수까지 1~2 과정 반복<br>
+[ANSWER] 시간복잡도 : Best => O(n) / Average => O(d(n + k)) / Worst => O(d(n + k))<br>
+[ELAPSED] (50000개 기준) 13(ms) FINISHED. -> 개수가 많을수록 좋다.</p>
+</details>
+
+<br/>
+
 <br/>
 
 ## 3. Tutorial Description
