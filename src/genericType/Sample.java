@@ -104,6 +104,13 @@ public class Sample {
 		d3.getFruitType(new Dessert<Fruit>(new Fruit()));
 		System.out.println("-> T extends Comparable<? super RedBanana> : Banana의 조상인 Fruit를 Comparable 한 클래스 사용 가능");
 		System.out.println("[!] '?' 와일드카드는 해당 제네릭 타입에 관심이 없고, 타입의 유무에 따른 메소드 사용에 관심이 있을 때.");
+		System.out.println("[!] '?' 와일드카드는 보통 데이터보단 메소드. 보통 Object의 메소드를 사용하기 위해. <?> = <? extends Object>");
+		System.out.println("[!] 그래서 List<? extends Fruit>는 가능하지만, List<T extends Fruit>는 불가능.");
+		System.out.println("[!] ?는 어떤 타입이 오든 관심없기 때문이고, T는 해당 타입의 데이터에 관심이 있기 때문에 해당 타입에 대한 함수 사용 가능");
+		System.out.println("ex) T에 Long 타입을 적용했을 때, Long Class의 함수 사용 가능해짐. ?는 사용 불가능(Object 함수만 사용가능)");
+		List<?> list = new ArrayList<Long>();
+		Dessert<Long> dessert = new Dessert(10L);
+		dessert.getDessert().intValue();	// long 타입 사용 가능
 		System.out.println("------------------------------------------------------------------------------");
 	}
 	

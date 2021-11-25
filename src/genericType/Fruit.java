@@ -5,6 +5,10 @@ public class Fruit {
 	public String toString() {
 		return "Fruit";
 	}
+	
+	public String temp() {
+		return "TEMP";
+	}
 }
 
 class Apple extends Fruit {
