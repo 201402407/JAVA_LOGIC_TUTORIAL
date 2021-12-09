@@ -117,7 +117,7 @@ public class Sample {
 	
 	static void question7() {
 		System.out.println("[QUESTION 7] Super Type Token이란?");
-		System.out.println("[ANSWER] Generic Type을 가지는 Class를 Generiy Type Class로 사용하기 위한 방법");
+		System.out.println("[ANSWER] Generic Type을 가지는 Class를 Generic Type Class로 사용하기 위한 방법");
 		System.out.println("[ANSWER] 즉, Reflection의 getGenericSuperClass 함수를 사용해 위 Type Class를 구분지을 수 있게 만드는 Super Class");
 		TypeReference<String> strType1 = new TypeReference<String>() {};	// 하위 클래스임을 알리기 위해 객체 생성 시 {} 추가해야함.
 		System.out.println("1) Type Created :: String, Get Type :: " + strType1.type.getTypeName());

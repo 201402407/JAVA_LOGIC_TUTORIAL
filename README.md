@@ -324,6 +324,24 @@ Dessert<? super Banana> parameter 객체 타입 :: genericType.Fruit<br>
 thread1 get 결과 :: 37<br>
 thread2 get 결과 :: 87</p>
 </details>
+<details>
+  <summary>  [QUESTION 5] InheritableThreadLocal이란?</summary>
+  <br>
+  <p>[ANSWER] 부모 쓰레드에서 생성된 ThreadLocal을 자식 쓰레드에서도 동일한 값으로 사용할 수 있는 ThreadLocal Class.<br>
+-> Servlet에서는 사용하면 안되는데,<br>
+-> 1) Request가 ThreadPool에서 처리된다는 점<br>
+-> 2) 메모리 누수(Memory Leak) 발생 => 자식 쓰레드도 사용하기 때문에 매 순간의 remove가 발생하지 않기 때문에<br>
+[ANSWER] Thread 생성자 또는 Runnable 구현 시 함수 내부에서 inheritableThreadLocal.set()을 통해 값을 저장하면 해당 쓰레드의 자식 쓰레드도 사용 가능<br>
+========== [Thread-2] START ==========<br>
+threadLocal get :: [Thread-2] ThreadLocal Value<br>
+inheritableThreadLocal get :: [Thread-2] InheritableThreadLocal Value<br>
+========== [Thread-4 - ChildThread] START ==========<br>
+threadLocal get :: null<br>
+inheritableThreadLocal get :: [Thread-2] InheritableThreadLocal Value<br>
+========== [Thread-3] START ==========<br>
+threadLocal get :: null<br>
+inheritableThreadLocal get :: null</p>
+</details>
 
 <br/>
 

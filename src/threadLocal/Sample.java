@@ -6,6 +6,7 @@ public class Sample {
 		question2();
 		question3();
 		question4();
+		question5();
 	}
 	
 	static void question1() {
@@ -44,7 +45,9 @@ public class Sample {
 		System.out.println("[ANSWER] 3) 현재 ThreadLocal에 값 불러오기(.get())");
 		String result = threadLocalGeneric.get();
 		System.out.println("[ANSWER] 4) 사용 완료 후 ThreadLocal 값 삭제(.remove())");
+		System.out.println(threadLocalGeneric.get());
 		threadLocalGeneric.remove();
+		System.out.println(threadLocalGeneric.get());
 		System.out.println("------------------------------------------------------------------------------");
 	}
 	
@@ -65,11 +68,54 @@ public class Sample {
 		System.out.println("------------------------------------------------------------------------------");
 	}
 	
+	static void question5() {
+		System.out.println("[QUESTION 5] InheritableThreadLocal이란?");
+		System.out.println("[ANSWER] 부모 쓰레드에서 생성된 ThreadLocal을 자식 쓰레드에서도 동일한 값으로 사용할 수 있는 ThreadLocal Class.");
+		System.out.println("-> Servlet에서는 사용하면 안되는데,");
+		System.out.println("-> 1) Request가 ThreadPool에서 처리된다는 점");
+		System.out.println("-> 2) 메모리 누수(Memory Leak) 발생 => 자식 쓰레드도 사용하기 때문에 매 순간의 remove가 발생하지 않기 때문에");
+		System.out.println("[ANSWER] Thread 생성자 또는 Runnable 구현 시 함수 내부에서 inheritableThreadLocal.set()을 통해 값을 저장하면 해당 쓰레드의 자식 쓰레드도 사용 가능");
+		
+		ThreadLocal<String> threadLocal = new ThreadLocal<>();
+		InheritableThreadLocal<String> inheritableThreadLocal = new InheritableThreadLocal<>();
+
+        Thread thread1 = new Thread(() -> {
+            System.out.println("========== [" + Thread.currentThread().getName() + "] START ==========");
+            threadLocal.set("[" + Thread.currentThread().getName() + "] ThreadLocal Value");
+            inheritableThreadLocal.set("[" + Thread.currentThread().getName() + "] InheritableThreadLocal Value");
+
+            System.out.println("threadLocal get :: " + threadLocal.get());
+            System.out.println("inheritableThreadLocal get :: " + inheritableThreadLocal.get());
+
+            Thread childThread = new Thread( () -> {
+            	System.out.println("========== [" + Thread.currentThread().getName() + " - ChildThread] START ==========");
+                System.out.println("threadLocal get :: " + threadLocal.get());
+                System.out.println("inheritableThreadLocal get :: " + inheritableThreadLocal.get());
+            });
+            childThread.start();
+        });
+
+        thread1.start();
+
+        Thread thread2 = new Thread(() -> {
+            try {
+                Thread.sleep(1500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            System.out.println("========== [" + Thread.currentThread().getName() + "] START ==========");
+            System.out.println("threadLocal get :: " + threadLocal.get());
+            System.out.println("inheritableThreadLocal get :: " + inheritableThreadLocal.get());
+            System.out.println("------------------------------------------------------------------------------");
+        });
+        thread2.start();
+        
+	}
 	
 	 public static class MyRunnable implements Runnable {
 
-	        private ThreadLocal<Integer> threadLocal =
-	               new ThreadLocal<Integer>();
+	        private ThreadLocal<Integer> threadLocal = new ThreadLocal<Integer>();
 
 	        @Override
 	        public void run() {
